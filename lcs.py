@@ -7,8 +7,15 @@
 		- 0 for diagnal
 '''
 
-A = 'bacdca'
-B = 'bacdca'
+input_file = "input.txt"
+output_file = "output.txt"
+file_in = open(input_file,"r")
+lines = file_in.readlines()
+file_in.close()
+file_out = open(output_file, "w")
+
+A = lines[0].strip()
+B = lines[1].strip()
 
 n = len(A)
 m = len(B)
@@ -28,7 +35,7 @@ for i in range(1,n+1):
 			opt[i][j] = opt[i-1][j]
 			par[i][j] = 2
 
-print opt[n][m]
+file_out.write(str(opt[n][m]))
 
 i = n
 j = m
@@ -43,4 +50,4 @@ while i>0 and j>0:
 		i-=1
 	else:
 		j-=1
-print S
+file_out.write("\n" + S)
